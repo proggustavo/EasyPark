@@ -10,6 +10,12 @@ public class TicketBO {
 		int resultado = ticketDAO.emitirTicket(ticketVO); 
 		
 	}
+
+	public void pagarTicket(TicketVO ticketVO) {
+		TicketDAO ticketDAO = new TicketDAO();
+		ticketDAO.pagarTicket(ticketVO);
+		
+	}
 	
 
 }

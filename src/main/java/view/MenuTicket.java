@@ -15,7 +15,7 @@ public class MenuTicket {
 	private static final int OPCAO_MENU_AVISO_SAIR = 9;
 
 	public void apresentarMenuTicketUsuario() {
-
+		
 		int opcao = this.apresentarOpcoesMenuTicketUsuario();
 		while (opcao != 9) {
 			switch (opcao) {
@@ -61,13 +61,11 @@ public class MenuTicket {
 		while (opcao != 9) {
 			switch (opcao) {
 				case OPCAO_MENU_EMITIR_TICKET: {
-					TicketVO ticketVO = new TicketVO();
-					ticketVO.emitirTicket();
+					this.emitirTicket();
 					break;
 				}
 				case OPCAO_MENU_PAGAR_TICKET: {
-					TicketVO ticketVO = new TicketVO();
-					ticketVO.emitirTicket();
+					this.pagarTicket();
 					break;
 				}
 				case OPCAO_MENU_VALIDAR_TICKET: {
@@ -105,13 +103,17 @@ public class MenuTicket {
 	}
 	
 	private void pagarTicket() {
+		TicketVO ticketVO = new TicketVO();
+		System.out.println("Informe o número da vaga: ");
+		ticketVO.setIdVaga(Integer.parseInt(teclado.nextLine()));
 		
-
+		ControladoraTicket controladoraTicket = new ControladoraTicket();
+		controladoraTicket.pagarTicket(ticketVO);
 		
 	}
 	
 	private void validarTicket() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

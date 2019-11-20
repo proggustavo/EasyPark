@@ -11,4 +11,10 @@ public class ControladoraTicket {
 		
 	}
 
+	public void pagarTicket(TicketVO ticketVO) {
+		TicketBO ticketBO = new TicketBO();
+		ticketBO.pagarTicket(ticketVO);
+		
+	}
+
 }
