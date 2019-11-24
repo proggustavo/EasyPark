@@ -1,14 +1,15 @@
 package executavel;
 
-import view.MenuEstacionamento;
+
+import view.MenuTicket;
 
 public class Executavel {
 
 	public static void main(String[] args) {
 		
 		
-		MenuEstacionamento menuEstacionamento = new MenuEstacionamento();
-		menuEstacionamento.apresentarMenu();
+		MenuTicket menuTicket = new MenuTicket();
+		menuTicket.apresentarMenuTicket();
 		
 		System.out.println("Programa Encerrado!"); 
 		

@@ -17,4 +17,21 @@ public class ControladoraTicket {
 		
 	}
 
+	public void desocuparVaga(TicketVO ticketVO) {
+		TicketBO ticketBO = new TicketBO();
+		ticketBO.desocuparVaga(ticketVO);
+		
+	}
+
+	public void ocuparVaga(TicketVO ticketVO) {
+		TicketBO ticketBO = new TicketBO();
+		ticketBO.ocuparVaga(ticketVO);
+		
+	}
+
+	public void validarTicket(TicketVO ticketVO) {
+		TicketBO ticketBO = new TicketBO();
+		ticketBO.validarVaga(ticketVO);
+	}
+
 }

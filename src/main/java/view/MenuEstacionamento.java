@@ -18,12 +18,12 @@ public class MenuEstacionamento {
 				switch(opcao) {
 				case OPCAO_MENU_ADMINISTRADOR:{
 					MenuTicket menuTicket= new MenuTicket();
-					menuTicket.apresentarMenuTicketAdmin();
+				//	menuTicket.apresentarMenuTicketAdmin();
 					break;
 				}
 				case OPCAO_MENU_USUARIO:{
 					MenuTicket menuTicket= new MenuTicket();
-					menuTicket.apresentarMenuTicketUsuario();
+				//	menuTicket.apresentarMenuTicketUsuario();
 					break;
 				}
 				default : {

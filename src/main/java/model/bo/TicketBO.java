@@ -16,6 +16,24 @@ public class TicketBO {
 		ticketDAO.pagarTicket(ticketVO);
 		
 	}
+
+	public void desocuparVaga(TicketVO ticketVO) {
+		TicketDAO ticketDAO = new TicketDAO();
+		ticketDAO.desocuparVaga(ticketVO);
+		
+	}
+
+	public void ocuparVaga(TicketVO ticketVO) {
+		TicketDAO ticketDAO = new TicketDAO();
+		ticketDAO.ocuparVaga(ticketVO);
+		
+	}
+
+	public void validarVaga(TicketVO ticketVO) {
+		TicketDAO ticketDAO = new TicketDAO();
+		ticketDAO.validarVaga(ticketVO);
+		
+	}
 	
 
 }
