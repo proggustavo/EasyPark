@@ -1,10 +1,14 @@
 package model.dao;
 
 import model.vo.TicketVO;
+import model.vo.VagaVO;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Types;
+import java.util.ArrayList;
 import java.sql.SQLException;
 
 public class TicketDAO {
@@ -151,6 +155,93 @@ public class TicketDAO {
 		}
 		
 	}
+
+	public ArrayList<TicketVO> consultarTickets() {
+		Connection conn = Banco.getConnection();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		ArrayList<TicketVO> tickets = new ArrayList<TicketVO>();
+		
+		try {
+			stmt = conn.prepareStatement("SELECT IDTICKET, IDVAGA, DHEMISSAO, DHENTRADA, DHPAGAMENTO, DHSAIDA, DTFINALIZADO, VALOR FROM TICKET ORDER BY IDTICKET");
+			
+			rs = stmt.executeQuery();
+						
+			while(rs.next()) {
+				TicketVO ticket = new TicketVO();
+				
+				ticket.setIdTicket(rs.getInt(1));
+				ticket.setIdVaga(rs.getInt(2));
+				ticket.setDtEmissao(rs.getString(3));
+				ticket.setDtEntrada(rs.getString(4));
+				ticket.setDtPagamento(rs.getString(5));
+				ticket.setDtSaida(rs.getString(6));
+				ticket.setDtFinalizado(rs.getString(7));
+				ticket.setValor(rs.getDouble(8));
+			
+				tickets.add(ticket);
+				
+			}
+			
+			
+		}catch(SQLException e) {
+			System.out.println("Erro ao executar a query de consultar de tickes");
+			System.out.println("Erro: " + e.getMessage());
+			
+			
+			
+		} finally {			
+			Banco.closeConnection(conn);
+			
+		}
+		return tickets;
+	}
+
+	public TicketVO consultarTicketEspecifico(TicketVO ticketVO) {
+		Connection conn = Banco.getConnection();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		TicketVO ticket = new TicketVO();
+		
+		
+		try {
+			stmt = conn.prepareStatement("SELECT IDTICKET, IDVAGA, DHEMISSAO, DHENTRADA, DHPAGAMENTO, DHSAIDA, DTFINALIZADO, VALOR FROM TICKET WHERE IDTICKET = ?");
+			
+			stmt.setInt(1, ticketVO.getIdTicket());
+			
+			rs = stmt.executeQuery();
+						
+			if(rs.next()) {
+				
+				ticket.setIdTicket(rs.getInt(1));
+				ticket.setIdVaga(rs.getInt(2));
+				ticket.setDtEmissao(rs.getString(3));
+				ticket.setDtEntrada(rs.getString(4));
+				ticket.setDtPagamento(rs.getString(5));
+				ticket.setDtSaida(rs.getString(6));
+				ticket.setDtFinalizado(rs.getString(7));
+				ticket.setValor(rs.getDouble(8));
+			
+			}
+			
+			
+		}catch(SQLException e) {
+			System.out.println("Erro ao executar a query de consultar de tickes");
+			System.out.println("Erro: " + e.getMessage());
+			
+			
+			
+		} finally {			
+			Banco.closeConnection(conn);
+			
+		}
+		return ticket;
+		
+	}
+
+	
 	
 	
 

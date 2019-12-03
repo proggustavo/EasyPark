@@ -1,15 +1,17 @@
 package executavel;
 
 
-import view.MenuTicket;
+import view.MenuLogin;
 
 public class Executavel {
 
 	public static void main(String[] args) {
 		
 		
-		MenuTicket menuTicket = new MenuTicket();
-		menuTicket.apresentarMenuTicket();
+		MenuLogin menuLogin = new MenuLogin();
+		menuLogin.apresentarMenuLogin();
+		
+		
 		
 		System.out.println("Programa Encerrado!"); 
 		

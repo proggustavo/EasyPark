@@ -1,5 +1,7 @@
 package model.bo;
 
+import java.util.ArrayList;
+
 import model.dao.TicketDAO;
 import model.vo.TicketVO;
 
@@ -23,17 +25,25 @@ public class TicketBO {
 		
 	}
 
-	public void ocuparVaga(TicketVO ticketVO) {
-		TicketDAO ticketDAO = new TicketDAO();
-		ticketDAO.ocuparVaga(ticketVO);
-		
-	}
-
 	public void validarVaga(TicketVO ticketVO) {
 		TicketDAO ticketDAO = new TicketDAO();
 		ticketDAO.validarVaga(ticketVO);
 		
 	}
+
+	public ArrayList<TicketVO> consultarTickets() {
+		TicketDAO TicketDAO = new TicketDAO();
+		return TicketDAO.consultarTickets();
+	}
+
+	public TicketVO consultarTicketEspecifico(TicketVO ticketVO) {
+		TicketDAO ticketDAO = new TicketDAO();
+		return ticketDAO.consultarTicketEspecifico(ticketVO);
+		
+		
+	}
+
+	
 	
 
 }

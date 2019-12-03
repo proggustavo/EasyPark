@@ -86,10 +86,20 @@ public class TicketVO {
 		this.tipo = tipo;
 	}
 
-	public void emitirTicket() {
-		// TODO Auto-generated method stub
+	public void imprimir() {
+		System.out.printf("%-10s %-15s %-25s %-24s %-25s %-25s %-25s %-15s\n",
+				+ this.getIdTicket(),
+				this.getIdVaga(),
+				this.getDtEmissao(),
+				this.getDtEntrada(),
+				this.getDtPagamento(),
+				this.getDtSaida(),
+				this.getDtFinalizado(),
+				this.getValor());
 		
 	}
+
+	
 
 	
 	
